@@ -71,7 +71,6 @@ input[type="submit"]:hover {
     background-color: #e6c229;
 }
 
-/* Decoração fofa - opcional */
 form::before {
     content: "📚";
     display: block;
