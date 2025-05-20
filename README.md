@@ -32,7 +32,7 @@ projeto/
 ├── index.html              # Página principal
 ├── style.css               # Estilização visual
 ├── calculo.js              # Lógica de cálculo e validação
-├── validor.js      # Manipulação do DOM
+├── validador.js      # Manipulação do DOM
 ├── __tests__/              # Pasta com testes unitários
 │   └── calculo.test.js
 ├── package.json
