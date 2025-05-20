@@ -1,7 +1,5 @@
-/* style.css */
-/* Estilo reutilizável para formulários escolares */
+/* style.css - Estilo minimalista */
 
-/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -9,72 +7,81 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f0f4f8;
-    color: #333333;
+    font-family: system-ui, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
     line-height: 1.6;
     padding: 2rem;
+    max-width: 500px;
+    margin: auto;
 }
 
 h1 {
     text-align: center;
-    color: #2A5C8D; /* Azul escolar */
-    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #222;
 }
 
 form {
-    background-color: #ffffff;
-    max-width: 500px;
-    margin: 0 auto 2rem auto;
+    background: #fff;
     padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
 label {
     display: block;
     margin-bottom: 0.5rem;
-    color: #2A5C8D;
-    font-weight: bold;
+    font-weight: 500;
 }
 
 input[type="text"],
 input[type="number"] {
     width: 100%;
-    padding: 0.5rem;
-    margin-bottom: 1.5rem;
-    border: 2px solid #ddd;
-    border-radius: 6px;
+    padding: 0.6rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus {
-    border-color: #2A5C8D;
-    outline: none;
 }
 
 input[type="submit"] {
-    background-color: #FED141; /* Amarelo energia */
-    color: #333333;
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #333;
+    color: #fff;
     border: none;
-    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
     font-size: 1rem;
-    border-radius: 6px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    width: 100%;
 }
 
 input[type="submit"]:hover {
-    background-color: #e6c229;
+    background-color: #555;
 }
 
-form::before {
-    content: "📚";
-    display: block;
-    font-size: 2rem;
-    text-align: center;
-    margin-bottom: 1rem;
+#resultado {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+#lista-alunos {
+    margin-top: 3rem;
+    font-size: 0.95rem;
+}
+
+#lista-alunos div {
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-radius: 6px;
+}
+
+.lista-aluno + .lista-aluno {
+    border-top: 1px solid #eee;
+    padding-top: 0.75rem;
 }

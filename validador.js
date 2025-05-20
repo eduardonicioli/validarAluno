@@ -99,16 +99,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function atualizarLista(aluno) {
         const alunoEl = document.createElement("div");
+        alunoEl.classList.add("lista-aluno");
+
         alunoEl.innerHTML = `
-            <strong>${aluno.nome}</strong> - 
+            <strong>${aluno.nome}</strong><br>
             Média: ${aluno.media} - 
-            Situação: <span style="font-weight:bold;">${aluno.situacao}</span>
+            Situação: <strong>${aluno.situacao}</strong>
         `;
-        alunoEl.style.padding = "0.75rem";
-        alunoEl.style.borderBottom = "1px solid #ccc";
         alunoEl.style.backgroundColor = getCorFundo(aluno.situacao);
+        alunoEl.style.padding = "0.75rem";
         alunoEl.style.marginBottom = "0.5rem";
-        alunoEl.style.borderRadius = "6px";
 
         listaAlunosDiv.appendChild(alunoEl);
     }
