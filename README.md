@@ -18,8 +18,31 @@
 
 ## 🚀 Como Executar Localmente
 
-### 1. Clone o repositório:
+###  Clone o repositório:
 
 ```bash
 git clone https://github.com/seu-usuario/seu-repositorio.git 
 cd seu-repositorio
+
+```
+## 📋 Estrutura do Projeto
+```bash
+
+projeto/
+├── index.html              # Página principal
+├── style.css               # Estilização visual
+├── calculo.js              # Lógica de cálculo e validação
+├── validor.js      # Manipulação do DOM
+├── __tests__/              # Pasta com testes unitários
+│   └── calculo.test.js
+├── package.json
+└── README.md
+```
+## 🛠️ Tecnologias Utilizadas
+
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- Jest (testes automatizados)
+- SonarCloud (análise de qualidade)
+- GitHub Actions (integração contínua)
