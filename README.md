@@ -38,6 +38,22 @@ projeto/
 ├── package.json
 └── README.md
 ```
+## 🧪 Rodar os Testes
+```bash
+npm test
+# Ou com cobertura
+npm test -- --coverage
+```
+## 📊 Cobertura de Testes
+```bash
+coverage/lcov-report/index.html
+```
+## 🌐 Integração Contínua
+O projeto é testado automaticamente no GitHub Actions e analisado quanto à qualidade no SonarCloud.
+
+🔗 [Ver análise no SonarCloud](https://sonarcloud.io/summary/new_code?id=eduardonicioli_validarAluno )
+
+
 ## 🛠️ Tecnologias Utilizadas
 
 - HTML5
