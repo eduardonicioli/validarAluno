@@ -121,11 +121,15 @@ document.addEventListener("DOMContentLoaded", function () {
             default: return "#FFEBEE";
         }
     }
-    
-    function limparDados() {
+
+});
+
+function limparDados() {
     if (confirm("Tem certeza que deseja limpar todos os registros?")) {
         localStorage.removeItem("alunos");
-        document.getElementById("lista-alunos").innerHTML = "";
+        const lista = document.getElementById("lista-alunos");
+        if (lista) {
+            lista.innerHTML = "";
+        }
     }
-    }
-});
+}
