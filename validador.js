@@ -1,9 +1,9 @@
-// manipulador-dom.js
-
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
     const resultDiv = document.createElement("div");
+    const listaAlunosDiv = document.createElement("div");
 
+    // Configuração da div de resultado
     resultDiv.id = "resultado";
     resultDiv.style.marginTop = "2rem";
     resultDiv.style.padding = "1rem";
@@ -14,7 +14,19 @@ document.addEventListener("DOMContentLoaded", function () {
     resultDiv.style.marginLeft = "auto";
     resultDiv.style.marginRight = "auto";
 
+    // Configuração da lista de alunos
+    listaAlunosDiv.id = "lista-alunos";
+    listaAlunosDiv.style.marginTop = "3rem";
+    listaAlunosDiv.style.maxWidth = "500px";
+    listaAlunosDiv.style.marginLeft = "auto";
+    listaAlunosDiv.style.marginRight = "auto";
+
+    // Adiciona elementos na página
     form.parentNode.appendChild(resultDiv);
+    form.parentNode.appendChild(listaAlunosDiv);
+
+    // Carrega alunos salvos no localStorage
+    carregarAlunos();
 
     form.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -23,7 +35,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const nota1 = parseFloat(document.getElementById("nota1").value);
         const nota2 = parseFloat(document.getElementById("nota2").value);
 
-        // Agora não usamos mais require
         const media = calcularMedia(nota1, nota2);
 
         if (isNaN(media)) {
@@ -54,6 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 cor = "#F5F5F5"; // cinza claro para erro
         }
 
+        // Atualiza o resultado visual
         resultDiv.style.backgroundColor = cor;
         resultDiv.style.color = "#333";
         resultDiv.innerHTML = `
@@ -61,11 +73,59 @@ document.addEventListener("DOMContentLoaded", function () {
             <strong>Média:</strong> ${media.toFixed(1)}<br>
             <strong>Situação:</strong> <span style="font-weight:bold;">${situacao}</span>
         `;
+
+        // Salva aluno e atualiza a lista
+        const aluno = { nome, nota1, nota2, media: media.toFixed(1), situacao };
+        salvarAluno(aluno);
+        atualizarLista(aluno);
     });
 
     function exibirErro(mensagem) {
         resultDiv.style.backgroundColor = "#FFCCBC";
         resultDiv.style.color = "#D32F2F";
         resultDiv.textContent = mensagem;
+    }
+
+    function salvarAluno(aluno) {
+        const alunos = JSON.parse(localStorage.getItem("alunos")) || [];
+        alunos.push(aluno);
+        localStorage.setItem("alunos", JSON.stringify(alunos));
+    }
+
+    function carregarAlunos() {
+        const alunos = JSON.parse(localStorage.getItem("alunos")) || [];
+        alunos.forEach(atualizarLista);
+    }
+
+    function atualizarLista(aluno) {
+        const alunoEl = document.createElement("div");
+        alunoEl.innerHTML = `
+            <strong>${aluno.nome}</strong> - 
+            Média: ${aluno.media} - 
+            Situação: <span style="font-weight:bold;">${aluno.situacao}</span>
+        `;
+        alunoEl.style.padding = "0.75rem";
+        alunoEl.style.borderBottom = "1px solid #ccc";
+        alunoEl.style.backgroundColor = getCorFundo(aluno.situacao);
+        alunoEl.style.marginBottom = "0.5rem";
+        alunoEl.style.borderRadius = "6px";
+
+        listaAlunosDiv.appendChild(alunoEl);
+    }
+
+    function getCorFundo(situacao) {
+        switch (situacao) {
+            case "Aprovado": return "#C8E6C9";
+            case "Recuperação": return "#FFF9C4";
+            case "Reprovado": return "#FFCDD2";
+            default: return "#FFEBEE";
+        }
+    }
+    
+    function limparDados() {
+    if (confirm("Tem certeza que deseja limpar todos os registros?")) {
+        localStorage.removeItem("alunos");
+        document.getElementById("lista-alunos").innerHTML = "";
+    }
     }
 });
