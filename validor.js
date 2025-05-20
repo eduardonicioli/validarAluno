@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const nota1 = parseFloat(document.getElementById("nota1").value);
         const nota2 = parseFloat(document.getElementById("nota2").value);
 
-        const { calcularMedia, determinarSituacao } = require('./calculo');
+        // Agora não usamos mais require
         const media = calcularMedia(nota1, nota2);
 
         if (isNaN(media)) {
@@ -38,11 +38,28 @@ document.addEventListener("DOMContentLoaded", function () {
 
         const situacao = determinarSituacao(media);
 
+        let cor;
+
+        switch (situacao) {
+            case "Aprovado":
+                cor = "#C8E6C9"; // verde claro
+                break;
+            case "Recuperação":
+                cor = "#FFF9C4"; // amarelo claro
+                break;
+            case "Reprovado":
+                cor = "#FFCDD2"; // vermelho claro
+                break;
+            default:
+                cor = "#F5F5F5"; // cinza claro para erro
+        }
+
+        resultDiv.style.backgroundColor = cor;
         resultDiv.style.color = "#333";
         resultDiv.innerHTML = `
             <strong>Aluno:</strong> ${nome}<br>
             <strong>Média:</strong> ${media.toFixed(1)}<br>
-            <strong>Situação:</strong> ${situacao}
+            <strong>Situação:</strong> <span style="font-weight:bold;">${situacao}</span>
         `;
     });
 
