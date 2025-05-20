@@ -17,6 +17,8 @@ function determinarSituacao(media) {
     return "Aprovado";
 }
 
-// Torna as funções acessíveis globalmente
-window.calcularMedia = calcularMedia;
-window.determinarSituacao = determinarSituacao;
+// Exporta as funções para uso nos testes
+module.exports = {
+    calcularMedia,
+    determinarSituacao
+};
