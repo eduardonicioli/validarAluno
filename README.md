@@ -2,7 +2,7 @@
 
 > Projeto acadêmico para calcular a média de dois valores e determinar a situação do aluno: **Aprovado**, **Recuperação** ou **Reprovado**.
 
-[![CI Tests](https://github.com/eduardonicioli/validarAluno/actions/workflows/test.yml/badge.svg )](https://github.com/eduardonicioli/validarAluno/actions )
+[![CI Tests](https://github.com/eduardonicioli/validarAluno/actions/workflows/test.yml/badge.svg )](https://github.com/eduardonicioli/validarAluno/actions )<br>
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=eduardonicioli_validarAluno&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=eduardonicioli_validarAluno)
 ---
 
